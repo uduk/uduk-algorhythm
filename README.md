@@ -20,3 +20,5 @@ UDUK in ril laiv:
 <p>4 lembarDaun Jeruk</p>
 <p>3 lembarDaun Salam</p>
 <p>1 lembarDaun Pandan</p>
+
+[logo]: http://uduk.org/uduk.png "UDUK"
