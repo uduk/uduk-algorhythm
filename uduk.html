@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Zhapelezz FormlezZ</title>
+</head>
+<body>
+<script>
+
+/*
+
+o   o o-o   o   o o  o 
+|   | |  \  |   | | /  
+|   | |   O |   | OO   
+|   | |  /  |   | | \  
+ o-o  o-o    o-o  o  o  Zhapelezz FormlezZ - tidak mengenal tuning, scale, teori musik, mode dKK, yg penting nge-zhred 
+
+*/
+
+/**/ /**/ /**/
+ var ZretBoard = [ [0,0],
+                  /*|1|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|2|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|3|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|4|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|5|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|6|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|7|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  /*|8|*/[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  [0,0] ];
+ var Sequence = [];
+/**/ /**/ /**/
+
+function clearZretBoard() {
+  for (var aa = 1; aa <= 8; aa++) {
+    for (var zz = 0; zz < 25; zz++) {
+      ZretBoard[aa][zz] ^= ZretBoard[aa][zz];
+    }
+  }
+}
+
+function dumpZretBoard() {
+  for (var aa = 1; aa <= 8; aa++) {
+    var str = "| " + aa + " | ";
+    for (var zz = 0; zz < 25; zz++) {
+      str += ZretBoard[aa][zz] + " " ;
+    }
+    console.log(str);
+  }
+}
+
+function enSequence(aa, zz) {
+  if (typeof aa === "number" && typeof zz === "number") {
+    if (aa >= 1 && aa <= 8) {
+      if (zz >=0 && zz <= 24) {   
+        if (zz < 10) {
+          ZretBoard[aa][zz]++;
+          zz = "0" + zz;
+          Sequence.push(aa + "" + zz);
+        }
+        else {
+          ZretBoard[aa][zz]++;
+          Sequence.push(aa + "" + zz);
+        }
+      }
+    }
+  }
+}
+
+function deSequence(aa, zz) {
+  if (typeof aa === "number" && typeof zz === "number") {
+    if (aa >= 1 && aa <= 8) {
+      if (zz >=0 && zz <= 24) {
+        if (zz < 10) {
+          ZretBoard[aa][zz]--;
+          zz = "0" + zz;
+          var i = Sequence.indexOf(aa + "" + zz);
+          if (i != -1) {
+            Sequence.splice(i, 1);
+          }
+        }
+        else {
+          var i = Sequence.indexOf(aa + "" + zz);
+          if (i != -1) {
+            ZretBoard[aa][zz]--;
+            Sequence.splice(i, 1);
+          }
+        }
+      }
+    }
+  }
+}
+
+function listSequence() {
+  var str = ""
+  for (aa = 0; aa < Sequence.length; aa++) {
+    str += Sequence[aa] + " "; 
+  }
+  console.log(str);
+}
+
+function zhapeLessWalk() {
+  var flags = 5;
+  var F_1 = 1; 
+  var F_2 = 2;
+  var F_3 = 4;
+  var F_4 = 8;
+  // sleep(wait(sleep()));
+}
+
+function arpeggiate() {
+  enSequence(1, 12); 
+  enSequence(1, 8);
+  enSequence(2, 10);
+  enSequence(3, 9);
+  enSequence(4, 10);
+  enSequence(5, 12);
+
+  enSequence(1, 12); 
+  enSequence(1, 8);
+  enSequence(2, 10);
+  enSequence(3, 9);
+  enSequence(4, 10);
+  enSequence(5, 12);
+
+  /*
+  deSequence(1, 12);
+  deSequence(1, 8);
+  deSequence(2, 10);
+  deSequence(3, 9);
+  deSequence(4, 10);
+  deSequence(5, 12);
+  */
+
+  listSequence();
+}
+
+arpeggiate();
+dumpZretBoard();
+
+</script>
+</body>
+</html>
