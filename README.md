@@ -30,11 +30,11 @@ Näive Random walk
 Applied RandomieZtas
 
 ### Zhapeless Formless alignment
-6x6 Matrix decomposition
+6x6 Matrix interval-icish decomposition
 
 ### Main-Z / ZerFretSung
-Unzupervised decomposition
+Unzupervised interval-icish decomposition
 
 > It is like a finger pointing away to the string, DON'T concentrate on the string or you will miss the zhredify glory ..[ok]
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/uduk/uduk-algotrhythm/master/index.png "Block Focus")
