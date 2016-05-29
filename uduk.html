@@ -100,12 +100,52 @@ function listSequence() {
 }
 
 function zhapeLessWalk() {
-  var flags = 5;
-  var F_1 = 1; 
-  var F_2 = 2;
-  var F_3 = 4;
-  var F_4 = 8;
-  // sleep(wait(sleep()));
+  var _pos = [];
+  for (var aa = 0; aa < 11; aa++) {
+    var rndAA = Math.floor(Math.random() * (4 - 1) + 1);
+    var rndZZ = Math.floor(Math.random() * (15 - 10) + 10);
+    enSequence(rndAA, rndZZ);
+    _pos.push(rndZZ);
+  }
+
+  _getBestPosition();
+  function _getBestPosition() {
+    var fpos = [0, 0, 0, 0];
+    for (var i = 0; i < _pos.length - 1; i++) {
+      var m = (_pos[i+1] - _pos[i]);
+      (m > 0 && m < 4) ? fpos[Math.abs(m)]++ : fpos[3]++; 
+    }
+    console.log("Best fit: " + fpos);
+  }
+
+}
+
+function zhapeLessWalkWithScale() {
+  var fre = Math.floor(Math.random() * (5 - 2) + 2);
+  var scale = [2, 2, 1, 2, 2, 2, 1];
+  var r = []; 
+  for (var i = 0; i < scale.length; i++) {
+    r.push(fre += scale[i]);
+  }
+
+  r = _shuffle(r);
+  for (var i = 0; i < r.length; i++) {
+    enSequence(6, r[i]);
+  }
+
+  function _shuffle(array) {
+    var m = array.length, t, i;
+    // While there remain elements to shuffle…
+    while (m) {
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+    return array;
+  }
 }
 
 function arpeggiate() {
@@ -115,28 +155,21 @@ function arpeggiate() {
   enSequence(3, 9);
   enSequence(4, 10);
   enSequence(5, 12);
-
-  enSequence(1, 12); 
-  enSequence(1, 8);
-  enSequence(2, 10);
-  enSequence(3, 9);
-  enSequence(4, 10);
-  enSequence(5, 12);
-
-  /*
+  // doSomething()
   deSequence(1, 12);
   deSequence(1, 8);
   deSequence(2, 10);
   deSequence(3, 9);
   deSequence(4, 10);
   deSequence(5, 12);
-  */
-
-  listSequence();
 }
 
 arpeggiate();
+zhapeLessWalk();
+zhapeLessWalkWithScale();
+
 dumpZretBoard();
+listSequence();
 
 </script>
 </body>
