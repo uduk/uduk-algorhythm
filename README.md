@@ -1,14 +1,15 @@
 # uduk-algorhythm
 Interval smoothing, based on -
 
+<pre>
 o   o o-o   o   o o  o 
 |   | |  \  |   | | /  
 |   | |   O |   | OO   
 |   | |  /  |   | | \  
  o-o  o-o    o-o  o  o 
+</pre>
   
-  
-in ril laiv:
+in riil laiv:
 
 <p>2,5 cupBeras, Cuci Bersih</p>
 <p>1 sachet Santan Kental, di Campur Air Sesuai Takaran Utk Menanak Nasi</p>
