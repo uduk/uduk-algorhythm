@@ -20,3 +20,21 @@ in riil laiv:
 <p>4 lembarDaun Jeruk</p>
 <p>3 lembarDaun Salam</p>
 <p>1 lembarDaun Pandan</p>
+
+# Meth.ods :
+
+### Drunken Frog
+Näive Random walk
+
+### One-line push
+Applied RandomieZtas
+
+### Zhapeless Formless alignment
+6x6 Matrix decomposition
+
+### Main-Z / ZerFretSung
+Unzupervised decomposition
+
+> It is like a finger pointing away to the string, DON'T concentrate on the string or you will miss the zhredify glory ..[ok]
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
