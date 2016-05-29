@@ -1,12 +1,13 @@
 # uduk-algorhythm
 Interval smoothing, based on -
+
+o   o o-o   o   o o  o 
+|   | |  \  |   | | /  
+|   | |   O |   | OO   
+|   | |  /  |   | | \  
+ o-o  o-o    o-o  o  o 
   
-  o   o o-o   o   o o  o 
-  |   | |  \  |   | | /  
-  |   | |   O |   | OO   
-  |   | |  /  |   | | \  
-   o-o  o-o    o-o  o  o 
-                             
+  
 in ril laiv:
 
 <p>2,5 cupBeras, Cuci Bersih</p>
