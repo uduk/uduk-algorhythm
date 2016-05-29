@@ -33,7 +33,7 @@ Applied functional RandomieZtas
 6x6 Matrix interval-icish decomposition
 
 ##### Main-Z / ZerFretSung
-Unzupervised interval-icish decomposition
+Unzupervised interval-icish combinatorial <-> decomposition (Musikalisches Würfelspiel)
 
 > It is like a finger pointing away to the string, DON'T concentrate on the string or you will miss the zhredify glory ..[ok]
 
