@@ -148,23 +148,26 @@ function zhapeLessWalkWithScale() {
   }
 }
 
+function chromaticFour() {
+  for (var i = 4; i < 12; i++) {
+    enSequence(4, i);
+  }
+}
+
 function arpeggiate() {
   enSequence(1, 12); 
   enSequence(1, 8);
   enSequence(2, 10);
   enSequence(3, 9);
-  enSequence(4, 10);
-  enSequence(5, 12);
   // doSomething()
   deSequence(1, 12);
   deSequence(1, 8);
   deSequence(2, 10);
   deSequence(3, 9);
-  deSequence(4, 10);
-  deSequence(5, 12);
 }
 
 arpeggiate();
+chromaticFour();
 zhapeLessWalk();
 zhapeLessWalkWithScale();
 
