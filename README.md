@@ -21,4 +21,4 @@ UDUK in ril laiv:
 <p>3 lembarDaun Salam</p>
 <p>1 lembarDaun Pandan</p>
 
-[logo]: http://uduk.org/uduk.png "UDUK"
+![alt text](http://uduk.org/uduk.png "UDUK")
