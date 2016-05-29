@@ -1,4 +1,4 @@
-# uduk-algorhythm
+# uduk-algorhythmm
 Interval smoothing, based on -
 
 <pre>
