@@ -1,5 +1,7 @@
 # uduk-algorhythm
-Interval smoothing
+Interval smoothing, based on -
+                             |
+                          <__|
 
 UDUK in ril laiv:
 
