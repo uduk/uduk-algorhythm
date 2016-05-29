@@ -21,18 +21,18 @@ in riil laiv:
 <p>3 lembarDaun Salam</p>
 <p>1 lembarDaun Pandan</p>
 
-# Meth.ods :
+### Meth.ods :
 
-### Drunken Frog
+##### Drunken Frog
 Näive Random walk
 
-### One-line push
-Applied RandomieZtas
+##### One-line push
+Applied functional RandomieZtas
 
-### Zhapeless Formless alignment
+##### Zhapeless Formless alignment
 6x6 Matrix interval-icish decomposition
 
-### Main-Z / ZerFretSung
+##### Main-Z / ZerFretSung
 Unzupervised interval-icish decomposition
 
 > It is like a finger pointing away to the string, DON'T concentrate on the string or you will miss the zhredify glory ..[ok]
