@@ -229,16 +229,48 @@ function zeroZpiralling()
 
   for (var i = 0; i < z.length; i++) {
     var x = z[i].toString();
-    var s =  x.charAt(0);
+    var s = x.charAt(0);
     var f = x.substr(1, 2);
     enSequence(parseInt(s), parseInt(f));
   }
 
 }
 
-zeroZpiralling();
+function drunkenFrog(start, steps) 
+{
+  var walkPattern = [-1, 2, 1, -1];
+  var sS = start.toString().charAt(0);
+  var sF = start.toString().substr(1, 2);
+  var vS = parseInt(sS);
+  var vF = parseInt(sF);
+
+  for (var z = 0; z < steps; z++) {
+    var rnd = Math.floor(Math.random() * (4 - 0) + 0); 
+    if (rnd == 0) {
+      vF += walkPattern[rnd];
+      if (vF < 0) { vF += 1}
+    }
+    else if (rnd ==  1) {
+      vF += walkPattern[rnd];
+      if (vF > 24) { vF -= 2}
+    }
+    else if (rnd == 2) {
+      vS += walkPattern[rnd];
+      if (vS > 6) { vS -= 1}
+    }
+    else if (rnd == 3) {
+      vS += walkPattern[rnd];
+      if (vS < 1) { vS += 1}
+    }
+
+    enSequence(vS, vF);
+  }
+}
+
+drunkenFrog(112, 9);
 
 /*
+zeroZpiralling();
 arpeggiate();
 chromaticFour();
 zhapeLessWalk();
