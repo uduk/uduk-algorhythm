@@ -8,20 +8,7 @@ o   o o-o   o   o o  o
 |   | |  /  |   | | \  
  o-o  o-o    o-o  o  o 
 </pre>
-  
 
-<dl>
-<dt>in riil laiv:</dt>
-<dd>2,5 cup Beras, Cuci Bersih</dd>
-<dd>1 sachet Santan Kental, di Campur Air Sesuai Takaran Utk Menanak Nasi</dd>
-<dd>3 cm Laos, Geprek</dd>
-<dd>3 cm Jahe</dd>
-<dd>1 batang Serai, Geprek</dd>
-<dd>1 sdt Garam</dd>
-<dd>4 lembarDaun Jeruk</dd>
-<dd>3 lembarDaun Salam</dd>
-<dd>1 lembarDaun Pandan</dd>
-</dl>
 ### Meth.ods :
 
 ##### Drunken Frog
