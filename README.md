@@ -30,8 +30,8 @@ Näive Random walk
 ##### One-line push
 Applied functional RandomieZtas
 
-##### Zhapeless Formless alignment
-6x6 Matrix interval-icish decomposition
+##### Zhapeless Formless Zpiralling
+MxN Matrix interval-icish zpiralling
 
 ##### Main-Z / ZerFretSung
 Unzupervised interval-icish combinatorial <-> decomposition (Musikalisches Würfelspiel)
