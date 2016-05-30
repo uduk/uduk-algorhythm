@@ -41,9 +41,14 @@ function clearZretBoard() {
 
 function dumpZretBoard() {
   for (var aa = 1; aa <= 8; aa++) {
-    var str = "| " + aa + " | ";
+    var str = "[" + aa + "] ";
     for (var zz = 0; zz < 25; zz++) {
-      str += ZretBoard[aa][zz] + " " ;
+      if (zz == 0) {
+        str += ZretBoard[aa][zz] + " | ";
+      }
+      else {
+        str += ZretBoard[aa][zz] + " " ;
+      }
     }
     console.log(str);
   }
@@ -166,10 +171,79 @@ function arpeggiate() {
   deSequence(3, 9);
 }
 
+function createZpiral(m, n, arr)
+{
+  /* http://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/ */
+  var i, k = 0, l = 0;
+
+  /*  k - starting row index
+      m - ending row index
+      l - starting column index
+      n - ending column index
+      i - iterator
+   */
+  var ret = [];
+
+  while (k < m && l < n) {
+    for (i = l; i < n; ++i) {
+      ret.push(arr[k][i]);
+    }
+    k++;
+
+    for (i = k; i < m; ++i) {
+      ret.push(arr[i][n-1]);
+    }
+    n--;
+
+    if ( k < m) {
+      for (i = n-1; i >= l; --i)
+      {
+        ret.push(arr[m-1][i]);
+      }
+      m--;
+    }
+
+    if (l < n) {
+      for (i = m-1; i >= k; --i)
+      {
+        ret.push(arr[i][l]);
+      }
+      l++;    
+    }        
+  }
+
+  return ret;
+}
+
+
+function zeroZpiralling()
+{
+  var a = [110, 112, 114, 115];
+  var b = [112, 114, 115, 117];
+  var c = [114, 115, 117, 119];
+  var d = [115, 117, 119, 121];
+
+  var seqMatrix = [];
+  seqMatrix.push(a); seqMatrix.push(b); seqMatrix.push(c); seqMatrix.push(d);
+  var z = createZpiral(4, 4, seqMatrix);
+
+  for (var i = 0; i < z.length; i++) {
+    var x = z[i].toString();
+    var s =  x.charAt(0);
+    var f = x.substr(1, 2);
+    enSequence(parseInt(s), parseInt(f));
+  }
+
+}
+
+zeroZpiralling();
+
+/*
 arpeggiate();
 chromaticFour();
 zhapeLessWalk();
 zhapeLessWalkWithScale();
+*/
 
 dumpZretBoard();
 listSequence();
