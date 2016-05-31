@@ -65,13 +65,32 @@ function nextSalt(initialSalt, salt) {
   return next;
 }
 
-function DumpSalt (arr)
+function dumpSalt (arr)
 {
   var salt = [];
   for (var z = 0; z < arr.length; z++) {
     salt.push(arr[z].toFixed(2));
   }
   console.log(salt);
+}
+
+function findSteadyState(initialSalt, salt) 
+{
+  var n = nextSalt(initialSalt, salt);
+  var c1 = [-1, -1, -1, -1], c2 = [0, 0, 0, 0], i = 0;
+  do {
+    n = nextSalt(n, salt);
+    if (i % 2 == 0) {
+      c1 = n.slice();
+    }
+    else if (i % 2 == 1) {
+      c2 = n.slice();
+    }
+    i++;
+  } while (!compareArray(c1, c2));
+
+  n = nextSalt(n, salt);
+  return n.slice();
 }
 
 function compareArray (arr1, arr2) 
@@ -159,37 +178,9 @@ var maxZtate = 7;
 var ztate = Math.floor(Math.random() * maxZtate);
 
 var initialSalt = [ 0.1, 0.6, 0.2, 0.1];
-
-//var ret = ScalarMultiplyMatrix(gamma, arr);
-
-/*
-console.log("Z Matrix: ");
-DumpMatrix(Z);
-console.log("C Matrix: ");
-DumpMatrix(C);
-console.log("salt Matrix: ");
-*/
-
-DumpSalt(initialSalt);
-var n = nextSalt(initialSalt, salt);
-DumpSalt(n);
-
-var c1 = [-1, -1, -1, -1], c2 = [0, 0, 0, 0], i = 0;
-do {
-  n = nextSalt(n, salt);
-  DumpSalt(n);
-  if (i % 2 == 0) {
-    c1 = n.slice();
-  }
-  else if (i % 2 == 1) {
-    c2 = n.slice();
-  }
-  i++;
-} while (!compareArray(c1, c2));
-
-console.log("Steady state found at: ");
-n = nextSalt(n, salt);
-DumpSalt(n);
+var steady = findSteadyState(initialSalt, salt);
+dumpSalt(steady);
+console.log(stead);
 
 </script>
 
