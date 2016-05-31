@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+function MatrixMax (arr)
+{
+  var max = 0;
+  for (var i = 0; i < arr.length; i++) {
+    var _max = Math.max(...arr[i]);
+    if (_max > max) {
+      max = _max;
+    }
+  }
+  return max
+}
+
+function ScalarMultiplyMatrix (scalar, arr)
+{
+  var ret = [];
+  for (var r = 0; r < arr.length; r++) {
+    var row = [];
+    for (var c = 0; c < arr[r].length; c++) {
+      var x = scalar * arr[r][c]; 
+      row.push(x);
+    }
+    ret.push(row);
+  }
+  return ret;
+}
+
+function DumpMatrix (arr)
+{
+  for (var r = 0; r < arr.length; r++) {
+    var row = [];
+    for (var c = 0; c < arr[r].length; c++) {
+      row.push(arr[r][c]);
+    }
+    console.log(row);
+  }
+}
+
+function nextSalt(initialSalt, salt) {
+  var next = [];
+  var row = initialSalt.length;
+  var column = salt[0].length;
+  var multiply = [];
+  for (var r = 0; r < row; r++) {
+    var a = initialSalt[r];
+    for (var c = 0; c < column; c++) {
+      var b = salt[r][c];
+      var m = a * b;
+      multiply.push(m);
+    }
+  }
+
+  var step = multiply.length / salt.length;
+  for (var s = 0; s < step; s++) {
+    var sum = 0;
+    for (var z = s; z < multiply.length; z+= salt.length) {
+      sum += multiply[z];
+    }
+    next.push(sum);
+  }
+  return next;
+}
+
+function DumpSalt (arr)
+{
+  var salt = [];
+  for (var z = 0; z < arr.length; z++) {
+    salt.push(arr[z].toFixed(2));
+  }
+  console.log(salt);
+}
+
+function compareArray (arr1, arr2) 
+{
+  var a1 = [];
+  var a2 = [];
+  for (var i = 0; i < arr1.length; i++) {
+    a1.push(arr1[i].toFixed(2));
+    a2.push(arr2[i].toFixed(2));
+  }
+  return (JSON.stringify(a1)==JSON.stringify(a2));
+}
+
+/*
+
+ZLearning: influence [1] https://en.wikipedia.org/wiki/Markov_chain [2] https://en.wikipedia.org/wiki/Q-learning
+
+          (zcale)
+       1 2 3 4 5 6 7
+       C D E F G A B
+     C 0 0 0 0 0 0 0
+     D 0 0 0 0 0 0 0 
+     E 0 0 0 0 0 0 0
+ Z = F 0 0 0 0 0 0 0
+     G 0 0 0 0 0 0 0
+     A 0 0 0 0 0 0 0 
+     B 0 0 0 0 0 0 0
+
+              1  2  3  4  5  6  7
+var Z = [ 1 [ 0, 0, 0, 0, 0, 0, 0 ],
+          2 [ 0, 0, 0, 0, 0, 0, 0 ],
+          3 [ 0, 0, 0, 0, 0, 0, 0 ],
+          4 [ 0, 0, 0, 0, 0, 0, 0 ],
+          5 [ 0, 0, 0, 0, 0, 0, 0 ],
+          6 [ 0, 0, 0, 0, 0, 0, 0 ],
+          7 [ 0, 0, 0, 0, 0, 0, 0 ],
+        ];
+
+var C = [ [ -1, -1, -1, -1, -1, -1, -1 ],
+          [ -1, -1, -1, -1, -1, -1, -1 ],
+          [ -1, -1, -1, -1, -1, -1, -1 ],
+          [ -1, -1, -1, -1, -1, -1, -1 ],
+          [ -1, -1, -1, -1, -1, -1, -1 ],
+          [ -1, -1, -1, -1, -1, -1, -1 ],
+          [ -1, -1, -1, -1, -1, -1, -1 ],
+        ];
+
+                 s  a  l  t     [sweep, alternate, legato, tap] probability vector
+var salt = [ s [ 0, 0, 0, 0 ],
+             a [ 0, 0, 0, 0 ],
+             l [ 0, 0, 0, 0 ],
+             t [ 0, 0, 0, 0 ],
+           ];
+
+var gamma = 0.8;
+
+*/
+
+var Z = [ [ 0, 0, 0, 0, 0, 0, 0 ],
+          [ 0, 0, 0, 0, 0, 0, 0 ],
+          [ 0, 0, 0, 0, 0, 0, 0 ],
+          [ 0, 0, 0, 0, 0, 0, 0 ],
+          [ 0, 0, 0, 0, 0, 0, 0 ],
+          [ 0, 0, 0, 0, 0, 0, 0 ],
+          [ 0, 0, 0, 0, 0, 0, 0 ],
+        ];
+
+var C = [ [ -1, -1, -1, -1,  0, -1, -1 ],
+          [ -1, -1,  0, -1, -1, -1,  7 ],
+          [ -1,  0, -1,  0, -1, -1, -1 ],
+          [ -1,  2, -1, -1, -1, -1, -1 ],
+          [ -1, -1,  0,  3,  0, -1, -1 ],
+          [ -1,  0, -1, -1, -1, -1,  7 ],
+          [ -1, -1, -1,  0, -1, -1, -1 ],
+        ];
+
+var salt = [ [ 0,   0.6, 0.1, 0.3 ],
+             [ 1.0,   0,   0,   0 ],
+             [ 0.1, 0.5,   0, 0.4 ],
+             [ 0,   0.6, 0.4,   0 ],
+           ];
+
+
+var maxZtate = 7;
+var ztate = Math.floor(Math.random() * maxZtate);
+
+var initialSalt = [ 0.1, 0.6, 0.2, 0.1];
+
+//var ret = ScalarMultiplyMatrix(gamma, arr);
+
+/*
+console.log("Z Matrix: ");
+DumpMatrix(Z);
+console.log("C Matrix: ");
+DumpMatrix(C);
+console.log("salt Matrix: ");
+*/
+
+DumpSalt(initialSalt);
+var n = nextSalt(initialSalt, salt);
+DumpSalt(n);
+
+var c1 = [-1, -1, -1, -1], c2 = [0, 0, 0, 0], i = 0;
+do {
+  n = nextSalt(n, salt);
+  DumpSalt(n);
+  if (i % 2 == 0) {
+    c1 = n.slice();
+  }
+  else if (i % 2 == 1) {
+    c2 = n.slice();
+  }
+  i++;
+} while (!compareArray(c1, c2));
+
+console.log("Steady state found at: ");
+n = nextSalt(n, salt);
+DumpSalt(n);
+
+</script>
+
+</head>
+	<body>
+	</body>
+</html>
