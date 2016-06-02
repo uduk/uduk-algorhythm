@@ -1,0 +1,24 @@
+<html>
+<body>
+<script type="text/javascript" src="brain-0.6.3.min.js"></script>
+<script>
+
+var net = new brain.NeuralNetwork({
+  hiddenLayers : [3, 4],
+  learningRate: 0.3
+});
+
+var data = [ {input: { r: 0.03, g: 0.7, b: 0.5 }, output: { black: 1 }},
+             {input: { r: 0.16, g: 0.09, b: 0.2 }, output: { white: 1 }},
+             {input: { r: 0.5, g: 0.5, b: 1.0 }, output: { white: 1 }} ]
+
+
+var train = net.train(data);
+var output = net.run({ r: 1, g: 0.4, b: 0 });
+
+console.log(train);
+console.log(output);
+
+</script>
+</body>
+</html>
