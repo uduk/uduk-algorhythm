@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script type="text/javascript" src="pso.js"></script>
+  <script>
+
+  var optimizer = new pso.Optimizer();
+  optimizer.setOptions({
+    inertiaWeight: 0.8,
+    social: 0.4,
+    personal: 0.4,
+    pressure: 0.5
+  });
+
+  optimizer.setObjectiveFunction(function (x) { return -(x[0] * x[0] + x[1] * x[1]); });
+
+  optimizer.init(20, [{ start: -10, end: 10 }, { start: -10, end: 10 }]);
+
+  for (var i = 0; i < 100; i++) {
+    optimizer.step();
+  }
+
+  console.log(optimizer.getBestFitness(), optimizer.getBestPosition());
+
+  </script>
+</body>
+</html>
