@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script type="text/javascript" src="synaptic.min.js"></script>
+  <script>
+
+  var hopfield = new Architect.Hopfield(16)
+
+  hopfield.learn([
+      [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+      [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  ])
+
+  var beat = hopfield.feed([1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1])
+  console.log(one);
+
+  </script>
+</body>
+</html>
