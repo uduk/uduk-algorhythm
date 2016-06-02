@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="q-learning.js"></script>
+</head>
+<body>
+<script>
+
+  // https://github.com/nrox/q-learning.js
+  var ql = new QLearner(0.9);
+
+  ql.add(0,4,0);
+  ql.add(4,3,0);
+  ql.add(3,1,0);
+  ql.add(2,3,0);
+  ql.add(1,5,100);
+  ql.learn(555);
+
+  ql.setState(0);
+
+  var current = null;
+  while (current!==ql.getState()){
+    current = ql.getState();
+    console.log("state: " + current + " value: " + ql.optimalFutureValue(current));
+    ql.runOnce();
+  }
+
+
+</script>
+</body>
+</html>
